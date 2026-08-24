@@ -6,11 +6,11 @@ The incident begins when the SIEM generates an alert indicating a potential modi
 
 After receiving the alert, the SOC and Incident Response team follow a structured investigation process designed to preserve relevant evidence, establish the initial scope of the incident, reconstruct the attack activity, assess its impact, and determine appropriate response actions. The response process is divided into five phases:
 
-[1. **Preparation**](#phase_1): Establish the investigation environment, evidence sources, investigation toolkit, and response methodology.
-[2. **Detection & Initial Triage**](#phase_2): Validate the alert, perform an initial assessment, identify the affected asset, and initialize the investigation case.
-[3. **Evidence Acquisition & Initial Scoping**](#phase_3):  Preserve relevant evidence, review host and network evidence, and establish the initial scope of the incident.
-[4. **Investigation & Analysis**](#phase_4): Correlate evidence, reconstruct the attack timeline, identify attacker activity and objectives, and assess the impact of the incident.
-[5. **Containment, Eradication & Recovery**](#phase_5) Contain the compromised environment, remove the attacker's foothold and persistence mechanisms, and restore the affected system to a trusted state.
+1. [**Preparation**](#phase_1): Establish the investigation environment, evidence sources, investigation toolkit, and response methodology.
+2. [**Detection & Initial Triage**](#phase_2): Validate the alert, perform an initial assessment, identify the affected asset, and initialize the investigation case.
+3. [**Evidence Acquisition & Initial Scoping**](#phase_3):  Preserve relevant evidence, review host and network evidence, and establish the initial scope of the incident.
+4. [**Investigation & Analysis**](#phase_4): Correlate evidence, reconstruct the attack timeline, identify attacker activity and objectives, and assess the impact of the incident.
+5. [**Containment, Eradication & Recovery**](#phase_5) Contain the compromised environment, remove the attacker's foothold and persistence mechanisms, and restore the affected system to a trusted state.
 
 ## 1. Phase 1: Preparation
 <div id="phase_1"></div>
