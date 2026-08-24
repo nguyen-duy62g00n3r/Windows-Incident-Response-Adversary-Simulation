@@ -1161,7 +1161,7 @@ The encrypted C2 traffic does not expose the contents of application data transf
 4.8.4 Initial Access Evidence
 The phishing email is treated as the assumed initial access vector of the simulation and is supported by the employee's statement. However, email-server telemetry was not collected as part of the project. The phishing email itself is therefore not independently verified through technical evidence.
     
->Investigation Note: – Cross Source Timestamp Discrepancy:
+>Investigation Note – Cross Source Timestamp Discrepancy:
 During an earlier execution of the attack simulation, an approximately 30 seconds discrepancy was observed between selected Sysmon timestamps and packet capture timestamps during the initial payload delivery stage. The discrepancy also affected the apparent order of some related events.
 >
 >A subsequent execution of the attack simulation was performed to validate the observation. The later execution produced a more consistent relationship between endpoint and network timestamps and was therefore selected as the primary evidence set for this investigation.
