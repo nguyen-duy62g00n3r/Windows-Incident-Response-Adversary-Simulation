@@ -6,14 +6,15 @@ The incident begins when the SIEM generates an alert indicating a potential modi
 
 After receiving the alert, the SOC and Incident Response team follow a structured investigation process designed to preserve relevant evidence, establish the initial scope of the incident, reconstruct the attack activity, assess its impact, and determine appropriate response actions. The response process is divided into five phases:
 
-1. **Preparation :** Establish the investigation environment, evidence sources, investigation toolkit, and response methodology.
-2. **Detection & Initial Triage :** Validate the alert, perform an initial assessment, identify the affected asset, and initialize the investigation case.
-3. **Evidence Acquisition & Initial Scoping :**  Preserve relevant evidence, review host and network evidence, and establish the initial scope of the incident.
-4. **Investigation & Analysis :** Correlate evidence, reconstruct the attack timeline, identify attacker activity and objectives, and assess the impact of the incident.
-5. **Containment, Eradication & Recovery :** Contain the compromised environment, remove the attacker's foothold and persistence mechanisms, and restore the affected system to a trusted state.
-
+[1. **Preparation**](#phase_1): Establish the investigation environment, evidence sources, investigation toolkit, and response methodology.
+[2. **Detection & Initial Triage**](#phase_2): Validate the alert, perform an initial assessment, identify the affected asset, and initialize the investigation case.
+[3. **Evidence Acquisition & Initial Scoping**](#phase_3):  Preserve relevant evidence, review host and network evidence, and establish the initial scope of the incident.
+[4. **Investigation & Analysis**](#phase_4): Correlate evidence, reconstruct the attack timeline, identify attacker activity and objectives, and assess the impact of the incident.
+[5. **Containment, Eradication & Recovery**](#phase_5) Contain the compromised environment, remove the attacker's foothold and persistence mechanisms, and restore the affected system to a trusted state.
 
 ## 1. Phase 1: Preparation
+<div id="phase_1"></div>
+
 The Preparation phase establishes the technical environment, evidence sources, investigation tools, and response methodology required to detect, investigate, and respond to security incidents. The objective of this phase is to ensure that the environment can generate and preserve sufficient telemetry for subsequent incident investigation while maintaining a clear understanding of where each type of evidence originates.
 
 ### 1.1 System Architecture
@@ -66,6 +67,7 @@ The incident response process combines established incident response lifecycle c
 These methodologies provide the overall structure for the response process while the subsequent phases define the specific activities performed during the simulated incident.
 
 ## 2. Phase 2: Detection & Initial Triage
+<div id="phase_2"></div>
 
 The Detection & Initial Triage phase begins when the SIEM generates an alert indicating a potential Registry Run Key modification associated with persistence.
 
@@ -115,6 +117,9 @@ Based on the alert and the underlying Sysmon event, the initial hypothesis is:
 An investigation case is opened for the suspected compromise of `DESKTOP-O7F02KF`. The case records the initial alert, affected assets, user, initial severity, initial hypothesis, and the relevant alert timestamp. Subsequent evidence and investigation findings are associated with this case throughout the incident response process.
 
 ## 3. Phase 3: Evidence Acquisition & Initial Scoping
+
+<div id="phase_3"></div>
+
 Following the initial alert validation and assessment, the investigation proceeds to evidence acquisition and initial scoping. The primary objectives of this phase are to preserve relevant evidence, review available host and network telemetry, identify potentially affected entities, and establish an initial understanding of the incident scope.
 ### 3.1 Evidence Preservation
 The affected workstation DESKTOP-O7F02KF is isolated from the private network to prevent further attacker activity and preserve the state of the compromised environment. The isolation is performed before extensive investigation activities are conducted on the workstation. The following principles are applied during evidence acquisition:
@@ -124,7 +129,7 @@ The affected workstation DESKTOP-O7F02KF is isolated from the private network to
 - Preserve collected artifacts for subsequent analysis.
 - Perform detailed analysis on collected copies and minimize directly modifying the original artifacts on the workstation.
 
->[!Note]Memory acquisition is intentionally excluded from the scope of this project.
+>Memory acquisition is intentionally excluded from the scope of this project.
 
 ### 3.2 Host Evidence Review
 Host  evidence is reviewed from two locations: centralized telemetry available on SIEM server and artifacts collected directly from the affected workstation. The purpose of this review is to identify potentially relevant processes, files, Registry modifications, and PowerShell activity surrounding the initial alert and to establish a preliminary host activity window.
@@ -252,7 +257,9 @@ Based on the evidence currently available, the initial scope consists of :
     
 No additional affected workstation or internal host is identified within the currently available evidence.
 
-## 4. Phase 4: Investigation & Analysis      
+## 4. Phase 4: Investigation & Analysis   
+<div id="phase_4"></div>
+    
 Following the initial scoping phase, the investigation proceeds to detailed analysis of the identified host, process, PowerShell, filesystem, Registry, and network evidence. This phase aims to reconstruct the sequence of attacker activity, correlate evidence from multiple sources, identify the attacker's objectives, and assess the impact of the incident. 
 
 The investigation follows a hypotheical approach. Each significant finding is used as a pivot to identify related evidence, validate the finding through independent telemetry where possible, and determine whether the scope of the incident should be expanded.
@@ -1087,7 +1094,7 @@ The following table summarizes the major events identified across the available 
 | `16:57:43.034` | JournalViewer | `Office Security Update.exe` is deleted | High |
 | `16:58:21.203` | Sysmon | `update.exe` terminates | High |
 
->Note: on cross source timestamps: 
+>Note on cross source timestamps: 
 The timestamps presented above are the timestamps recorded by the respective evidence sources. Minor differences in event timing may occur between Sysmon, PowerShell Operational logs, filesystem artifacts, and packet captures due to differences in event generation, buffering, and timestamp recording. Therefore, the timestamps should be interpreted together with process relationships, file relationships, and network correlation rather than treated as an absolute representation of causal order. The final attack sequence is established through cross source correlation rather than by timestamp alone.
 
 Based on the correlated evidence, the attack sequence can be reconstructed as follows:
@@ -1169,6 +1176,8 @@ During an earlier execution of the attack simulation, an approximately 30 second
 >The earlier execution is retained as an investigation note because it demonstrates an important forensic consideration: timestamp data from individual telemetry sources should not automatically be treated as the sole authoritative representation of event order. Cross source correlation, process relationships, file metadata, and causal relationships should be considered when reconstructing an incident timeline.
     
 ## 5. Phase 5: Containment, Eradication & Recovery
+<div id="phase_5"></div>
+    
 Following the completion of the investigation and impact assessment, the response proceeds to containment, eradication, and recovery. The objective of this phase is to prevent further attacker activity, remove the identified malicious components and persistence mechanisms, restore the affected workstation to a trusted state, and implement defensive improvements based on the findings of the investigation.    
     
 ### 5.1 Containment
