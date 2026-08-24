@@ -10,7 +10,7 @@ After receiving the alert, the SOC and Incident Response team follow a structure
 2. [**Detection & Initial Triage**](#phase_2): Validate the alert, perform an initial assessment, identify the affected asset, and initialize the investigation case.
 3. [**Evidence Acquisition & Initial Scoping**](#phase_3):  Preserve relevant evidence, review host and network evidence, and establish the initial scope of the incident.
 4. [**Investigation & Analysis**](#phase_4): Correlate evidence, reconstruct the attack timeline, identify attacker activity and objectives, and assess the impact of the incident.
-5. [**Containment, Eradication & Recovery**](#phase_5) Contain the compromised environment, remove the attacker's foothold and persistence mechanisms, and restore the affected system to a trusted state.
+5. [**Containment, Eradication & Recovery**](#phase_5): Contain the compromised environment, remove the attacker's foothold and persistence mechanisms, and restore the affected system to a trusted state.
 
 ## 1. Phase 1: Preparation
 <div id="phase_1"></div>
@@ -1095,7 +1095,7 @@ The following table summarizes the major events identified across the available 
 | `16:58:21.203` | Sysmon | `update.exe` terminates | High |
 
 >Note on cross source timestamps: 
-The timestamps presented above are the timestamps recorded by the respective evidence sources. Minor differences in event timing may occur between Sysmon, PowerShell Operational logs, filesystem artifacts, and packet captures due to differences in event generation, buffering, and timestamp recording. Therefore, the timestamps should be interpreted together with process relationships, file relationships, and network correlation rather than treated as an absolute representation of causal order. The final attack sequence is established through cross source correlation rather than by timestamp alone.
+>The timestamps presented above are the timestamps recorded by the respective evidence sources. Minor differences in event timing may occur between Sysmon, PowerShell Operational logs, filesystem artifacts, and packet captures due to differences in event generation, buffering, and timestamp recording. Therefore, the timestamps should be interpreted together with process relationships, file relationships, and network correlation rather than treated as an absolute representation of causal order. The final attack sequence is established through cross source correlation rather than by timestamp alone.
 
 Based on the correlated evidence, the attack sequence can be reconstructed as follows:
 
@@ -1169,7 +1169,7 @@ The encrypted C2 traffic does not expose the contents of application data transf
 The phishing email is treated as the assumed initial access vector of the simulation and is supported by the employee's statement. However, email-server telemetry was not collected as part of the project. The phishing email itself is therefore not independently verified through technical evidence.
     
 >Investigation Note – Cross Source Timestamp Discrepancy:
-During an earlier execution of the attack simulation, an approximately 30 seconds discrepancy was observed between selected Sysmon timestamps and packet capture timestamps during the initial payload delivery stage. The discrepancy also affected the apparent order of some related events.
+>During an earlier execution of the attack simulation, an approximately 30 seconds discrepancy was observed between selected Sysmon timestamps and packet capture timestamps during the initial payload delivery stage. The discrepancy also affected the apparent order of some related events.
 >
 >A subsequent execution of the attack simulation was performed to validate the observation. The later execution produced a more consistent relationship between endpoint and network timestamps and was therefore selected as the primary evidence set for this investigation.
 >
