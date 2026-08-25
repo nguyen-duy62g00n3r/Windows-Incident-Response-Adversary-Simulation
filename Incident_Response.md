@@ -1159,13 +1159,13 @@ Based on the confirmed findings, the incident resulted in a successful endpoint 
 #### 4.8.1 Encrypted C2 Tasking
 The C2 channel uses encrypted communication. Consequently, the exact commands exchanged between the operator and the implant cannot be directly reconstructed from the PCAP. The investigation therefore relies on host side effects, process relationships, PowerShell telemetry, filesystem artifacts, and temporal correlation to infer the purpose of the remote activity.
 
-4.8.2 Archive Contents
+#### 4.8.2 Archive Contents
 The investigation confirms the creation and deletion of `Collected_Data.zip`, but the available evidence does not preserve the exact file list supplied to the archive operation.
 
-4.8.3 Exfiltration Contents
+#### 4.8.3 Exfiltration Contents
 The encrypted C2 traffic does not expose the contents of application data transfers. Therefore, the investigation cannot independently determine which files or data, if any, were successfully transferred to the attacker.
 
-4.8.4 Initial Access Evidence
+#### 4.8.4 Initial Access Evidence
 The phishing email is treated as the assumed initial access vector of the simulation and is supported by the employee's statement. However, email-server telemetry was not collected as part of the project. The phishing email itself is therefore not independently verified through technical evidence.
     
 >Investigation Note – Cross Source Timestamp Discrepancy:
