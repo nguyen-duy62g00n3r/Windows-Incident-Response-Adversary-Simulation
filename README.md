@@ -47,5 +47,5 @@ This project is intentionally limited to a small controlled Windows environment 
 ---
 
 <p align="center">
-  <b>Documentation created for educational purposes, technical research, and community knowledge sharing.</b>
+  <b>Documentation was created for educational purposes, technical research, and community knowledge sharing.</b>
 </p>
